@@ -20,6 +20,14 @@ function itemsReducer(items, action) {
         },
       ];
     }
+    case 'edit': {
+      return items.map(item => {
+        if (item.id === action.task.id) {
+          return action.task;
+        }
+        return item;
+      });
+    }
     case 'delete': {
       return items.filter((item) => item.id !== action.id);
     }
@@ -39,6 +47,13 @@ export default function Home() {
     });
   };
 
+  const handleEditItem = (task) => {
+    dispatch({
+      type: 'edit',
+      task
+    });
+  };
+
   const handleDeleteItem = (id) => {
     dispatch({
       type: 'delete',
@@ -49,7 +64,7 @@ export default function Home() {
   return (
     <>
       <InputShoppingItem onAddItem={handleAddItem} />
-      <CartItems items={items} onDelete={handleDeleteItem} />
+      <CartItems items={items} onEdit={handleEditItem} onDelete={handleDeleteItem} />
     </>
   );
 }

@@ -3,10 +3,10 @@
   setup localStorage to hold shopping cart
 
   src/
-    - utils
-      - localStorage
-      - reducerFunctions
     - views
-       - Home (renders shoppingCart)
+       - Home (renders ItemList)
     - components
-      - shoppingCart(form)
+      - InputShoppingItem
+      /ItemList (should have lowercased this)
+        -Item (dummy comp renders item)
+        -CartItems ()

@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from './Item';
 
-export default function CartItems({ items, onDelete }) {
+export default function CartItems({ items, onEdit, onDelete }) {
   return (
     <>
       <ul>
