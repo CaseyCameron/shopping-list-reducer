@@ -17,11 +17,7 @@ export default function InputShoppingItem({ onAddItem }) {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <button
-          type="submit"
-        >
-          Add Item
-        </button>
+        <button type="submit">Add Item</button>
       </form>
     </>
   );

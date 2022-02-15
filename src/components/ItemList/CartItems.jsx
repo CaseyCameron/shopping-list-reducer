@@ -8,7 +8,7 @@ export default function CartItems({ items, onEdit, onDelete }) {
         {items.map((item) => {
           return (
             <li key={item.id}>
-              <Item item={item} onDelete={onDelete} />
+              <Item item={item} onEdit={onEdit} onDelete={onDelete} />
             </li>
           );
         })}
