@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import InputShoppingItem from '../components/InputShoppingItem';
-import ShoppingCart from '../components/ShoppingCart';
+import CartItems from '../components/ItemList/CartItems';
 
 const initialItems = [
   { id: 0, text: 'Meat', done: false },
@@ -17,10 +17,13 @@ function itemsReducer(items, action) {
           id: action.id,
           text: action.text,
           done: false,
-        }
+        },
       ];
     }
-    case 'default': 
+    case 'delete': {
+      return items.filter((item) => item.id !== action.id);
+    }
+    case 'default':
       throw Error(`Unknown action: ${action.type}`);
   }
 }
@@ -35,11 +38,18 @@ export default function Home() {
       id: items.length + 1,
     });
   };
-  
+
+  const handleDeleteItem = (id) => {
+    dispatch({
+      type: 'delete',
+      id: id
+    });
+  };
+
   return (
     <>
-      <InputShoppingItem onAddItem={handleAddItem}/>
-      <ShoppingCart />
+      <InputShoppingItem onAddItem={handleAddItem} />
+      <CartItems items={items} onDelete={handleDeleteItem} />
     </>
   );
 }
