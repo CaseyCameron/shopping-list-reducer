@@ -18,7 +18,12 @@ export default function Item({ item, onEdit, onDelete }) {
             });
           }}
         />
-        <EditContent props={item, isEditing, setIsEditing, item, onEdit} />
+        <EditContent
+          item={item}
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
+          onEdit={onEdit}
+        />
         <button type="button" onClick={() => onDelete(item.id)}>
           Delete
         </button>

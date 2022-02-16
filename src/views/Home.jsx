@@ -30,6 +30,7 @@ export default function Home() {
 
   return (
     <>
+      <h1>Welcome to the Shopping List</h1>
       <InputShoppingItem onAddItem={handleAddItem} />
       <CartItems items={items} onEdit={handleEditItem} onDelete={handleDeleteItem} />
     </>
