@@ -14,6 +14,7 @@ export default function InputShoppingItem({ onAddItem }) {
       <form onSubmit={handleSubmit}>
         <input
           placeholder="New Item"
+          aria-label="New Item"
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />

@@ -7,11 +7,14 @@ export default function EditContent({ isEditing, setIsEditing, item, onEdit }) {
         <>
           <input
             value={item.text}
+            aria-label={`${item.text} edit`}
             onChange={(e) => {
               onEdit({ ...item, text: e.target.value });
             }}
           />
-          <button onClick={() => setIsEditing(false)}>Save</button>
+          <button type="button" onClick={() => setIsEditing(false)}>
+            Save
+          </button>
         </>
       )}
       {!isEditing && (

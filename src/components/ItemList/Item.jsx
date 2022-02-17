@@ -10,6 +10,7 @@ export default function Item({ item, onEdit, onDelete }) {
         {item.text}
         <input
           type="checkbox"
+          aria-label={`${item.text} input`}
           checked={item.done}
           onChange={(e) => {
             onEdit({
