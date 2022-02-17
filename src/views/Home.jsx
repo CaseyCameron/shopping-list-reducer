@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import InputShoppingItem from '../components/InputShoppingItem';
 import CartItems from '../components/ItemList/CartItems';
 import { initialItems, itemsReducer } from '../utils/reducer-utils';
+import './Home.css';
 
 export default function Home() {
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
@@ -29,10 +30,10 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="home-body">
       <h1>Welcome to the Shopping List</h1>
       <InputShoppingItem onAddItem={handleAddItem} />
       <CartItems items={items} onEdit={handleEditItem} onDelete={handleDeleteItem} />
-    </>
+    </div>
   );
 }

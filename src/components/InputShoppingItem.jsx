@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './InputShoppingItem.css';
 
 export default function InputShoppingItem({ onAddItem }) {
   const [newItem, setNewItem] = useState('');
@@ -11,7 +12,7 @@ export default function InputShoppingItem({ onAddItem }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <input
           placeholder="New Item"
           aria-label="New Item"

@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item';
+import './CartItems.css';
 
 export default function CartItems({ items, onEdit, onDelete }) {
   return (
