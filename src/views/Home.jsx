@@ -1,5 +1,6 @@
-import InputShoppingItem from '../components/InputShoppingItem';
 import CartItems from '../components/ItemList/CartItems';
+import Header from '../components/Header';
+import InputShoppingItem from '../components/InputShoppingItem';
 import { useList } from '../context/ListContext';
 import './Home.css';
 
@@ -8,7 +9,7 @@ export default function Home() {
 
   return (
     <div className="home-body">
-      <h1>Welcome to the Shopping List</h1>
+      <Header />
       <InputShoppingItem onAddItem={handleAddItem} />
       <CartItems items={items} onEdit={handleEditItem} onDelete={handleDeleteItem} />
     </div>
