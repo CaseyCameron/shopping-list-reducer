@@ -53,12 +53,14 @@ test('for user behavior validation', async () => {
   userEvent.click(tofuEdit);
   const tofuInput = within(tofuItems).getByRole('textbox');
   expect(tofuInput).toHaveDisplayValue(/tofu/i);
+  userEvent.type(tofuInput, '{selectall}{del}');
+  expect(tofuInput).toHaveValue('');
 
   userEvent.type(tofuInput, 'soy sauce');
   const save = within(tofuItems).getByRole('button', { name: /save/i });
   userEvent.click(save);
   screen.getByText(/soy sauce/i);
-
+  
   // delete the soy sauce entry
   userEvent.click(tofuDelete);
   expect(tofuItems).not.toBeInTheDocument();
