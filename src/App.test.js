@@ -23,10 +23,10 @@ test('that all expected items render on page', () => {
   const meatItems = screen.getByText(/meat/i);
   within(meatItems).getByRole('checkbox');
 
-  // // check for edit button with the 'meat' div
+  // check for edit button with the 'meat' div
   within(meatItems).getByRole('button', { name: /edit/i });
 
-  // // check for delete button within the 'meat' view
+  // check for delete button within the 'meat' view
   within(meatItems).getByRole('button', { name: /delete/i });
 });
 
