@@ -1,10 +1,13 @@
 import './App.css';
+import ListProvider from './context/ListContext';
 import Home from './views/Home';
 
 function App() {
   return (
     <>
-      <Home />
+      <ListProvider>
+        <Home />
+      </ListProvider>
     </>
   );
 }
