@@ -9,7 +9,7 @@ export default function Header() {
     <>
       <div className="heading">
         <h1>Shopping List</h1>
-        <div className="items">Items: {items.length}</div>
+        <div className="items">{items.length} items</div>
       </div>
     </>
   );
