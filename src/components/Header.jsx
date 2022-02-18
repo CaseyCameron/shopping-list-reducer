@@ -8,8 +8,8 @@ export default function Header() {
   return (
     <>
       <div className="heading">
-        <h1>Welcome to the Shopping List</h1>
-        <div className="items">{items.length}</div>
+        <h1>Shopping List</h1>
+        <div className="items">Items: {items.length}</div>
       </div>
     </>
   );
