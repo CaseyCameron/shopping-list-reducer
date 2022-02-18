@@ -6,7 +6,7 @@ test('that all expected items render on page', () => {
   render(<App />);
 
   // check for heading
-  screen.getByRole('heading', { name: /Welcome to the Shopping List/i });
+  screen.getByRole('heading', { name: /Shopping List/i });
 
   // check for user input box
   screen.getByRole('textbox');
@@ -49,16 +49,14 @@ test('for user behavior validation', async () => {
   const tofuEdit = within(tofuItems).getByRole('button', { name: /edit/i });
   const tofuDelete = within(tofuItems).getByRole('button', { name: /delete/i });
 
-  // edit the new tofu entry to soy sauce
+  // edit the new tofu entry to soy sauce and click save
   userEvent.click(tofuEdit);
   const tofuInput = within(tofuItems).getByRole('textbox');
   expect(tofuInput).toHaveDisplayValue(/tofu/i);
-  userEvent.type(tofuInput, '{selectall}{del}');
-  expect(tofuInput).toHaveValue('');
-
-  userEvent.type(tofuInput, 'soy sauce');
-  const save = within(tofuItems).getByRole('button', { name: /save/i });
+  userEvent.type(tofuInput, '{selectall}{del}soy sauce');
+  const save = within(tofuItems).queryByRole('button', { name: /save/i });
   userEvent.click(save);
+  expect(screen.queryByText(/save/i)).toBeNull();
   screen.getByText(/soy sauce/i);
   
   // delete the soy sauce entry
